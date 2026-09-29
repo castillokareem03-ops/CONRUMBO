@@ -1,0 +1,24 @@
+workflows:
+  conrumbo_android:
+    name: conrumbo Android
+    instance_type: linux_x2
+    max_build_duration: 30
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - name: Preparar proyecto Flutter
+        script: |
+          unzip -o conrumbo_mvp_v5_100_gratuito.zip -d /tmp/conrumbo
+          cd /tmp/conrumbo/conrumbo_mvp_v5_free
+          flutter create . --platforms android
+          flutter pub get
+
+      - name: Generar APK
+        script: |
+          cd /tmp/conrumbo/conrumbo_mvp_v5_free
+          flutter build apk --release
+
+    artifacts:
+      - /tmp/conrumbo/conrumbo_mvp_v5_free/build/app/outputs/flutter-apk/app-release.apk
