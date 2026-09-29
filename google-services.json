@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1022623233905",
+    "project_id": "conrumbo-8b6fb",
+    "storage_bucket": "conrumbo-8b6fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022623233905:android:13b9445be2ee2632f7e8d0",
+        "android_client_info": {
+          "package_name": "com.example.conrumbo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGNIxlXOJ-TY1fuvHpmyTbizXPGHNQRRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
