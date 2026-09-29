@@ -13,7 +13,41 @@ workflows:
           unzip -o conrumbo_mvp_v12_compilable.zip -d /tmp/conrumbo
           cd /tmp/conrumbo
           flutter create . --platforms android
+
+          mkdir -p android/app
+          cp "$CM_BUILD_DIR/google-services.json" android/app/google-services.json
+
           flutter pub get
+
+      - name: Configurar Google Services
+        script: |
+          cd /tmp/conrumbo
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          settings = Path("android/settings.gradle.kts")
+          text = settings.read_text()
+
+          if 'com.google.gms.google-services' not in text:
+              text = text.replace(
+                  'plugins {',
+                  'plugins {\n    id("com.google.gms.google-services") version "4.4.2" apply false',
+                  1
+              )
+              settings.write_text(text)
+
+          app = Path("android/app/build.gradle.kts")
+          text = app.read_text()
+
+          if 'id("com.google.gms.google-services")' not in text:
+              text = text.replace(
+                  'plugins {',
+                  'plugins {\n    id("com.google.gms.google-services")',
+                  1
+              )
+              app.write_text(text)
+          PY
 
       - name: Generar APK
         script: |
