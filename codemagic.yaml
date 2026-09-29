@@ -11,7 +11,7 @@ workflows:
       - name: Preparar proyecto Flutter
         script: |
           unzip -o conrumbo_mvp_v6_corregido.zip -d /tmp/conrumbo
-cd /tmp/conrumbo/conrumbo_mvp_v5_free
+          cd /tmp/conrumbo/conrumbo_mvp_v5_free
           flutter create . --platforms android
           flutter pub get
 
