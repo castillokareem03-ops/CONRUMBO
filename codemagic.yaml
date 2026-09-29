@@ -11,14 +11,14 @@ workflows:
       - name: Preparar proyecto Flutter
         script: |
           unzip -o conrumbo_mvp_v12_compilable.zip -d /tmp/conrumbo
-          cd /tmp/conrumbo/conrumbo_mvp_v5_free
+          cd /tmp/conrumbo
           flutter create . --platforms android
           flutter pub get
 
       - name: Generar APK
         script: |
-          cd /tmp/conrumbo/conrumbo_mvp_v5_free
+          cd /tmp/conrumbo
           flutter build apk --release
 
     artifacts:
-  - /tmp/conrumbo/build/app/outputs/flutter-apk/app-release.apk
+      - /tmp/conrumbo/build/app/outputs/flutter-apk/app-release.apk
