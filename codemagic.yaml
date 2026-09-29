@@ -12,8 +12,7 @@ workflows:
         script: |
           unzip -o conrumbo_mvp_v12_compilable.zip -d /tmp/conrumbo
           cd /tmp/conrumbo
-          flutter create . --platforms android
-
+          flutter create --project-name conrumbo . --platforms android
           mkdir -p android/app
           cp "$CM_BUILD_DIR/google-services.json" android/app/google-services.json
 
