@@ -10,7 +10,7 @@ workflows:
     scripts:
       - name: Preparar proyecto Flutter
         script: |
-         unzip -o conrumbo_v19_reservas_ine_verificacion.zip -d /tmp/conrumbo
+         unzip -o conrumbo_v20_verificacion_flujo.zip -d /tmp/conrumbo
           cd /tmp/conrumbo
           flutter create --project-name conrumbo . --platforms android
           mkdir -p android/app
